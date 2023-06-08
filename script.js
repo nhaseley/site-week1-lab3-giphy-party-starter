@@ -2,9 +2,10 @@
 const apiKey = "RXqwRIzTKNCuE32A6fSJFG4kiYoob3hv"
 const limit = 9
 const rating = "g"
-const searchFormQuery = document.getElementById(".search-form")
-const searchInputQuery = document.getElementById(".search-input")
-const searchButtonQuery = document.getElementById(".search-button")
+const searchForm = document.getElementById("search-form")
+const searchInput = document.getElementById("search-input")
+const showMoreBtn = document.getElementById("show-more-button")
+const resultsEl = document.getElementById("results")
 
 const GIPHY_API_BASE_URL = `http://api.giphy.com/v1/gifs/search`
 
@@ -41,6 +42,9 @@ function displayResults(results) {
   resultsEl.innerHTML += gifsHTMLString
 }
 
+const createGiphyEndpointUrl = (searchTerm, numResults, offset = 0) =>
+  `${GIPHY_API_BASE_URL}?q=${searchTerm}&limit=${numResults}&offset=${offset}&api_key=${apiKey}`
+
 /**
  * Make the actual `fetch` request to the Giphy API
  * and appropriately handle the response.
@@ -73,6 +77,7 @@ async function handleFormSubmit(event) {
   // handle state changes
   state.apiPage = 0
   state.searchTerm = searchInput.value
+  console.log(searchInput.value)
   const results = await getGiphyApiResults(state.searchTerm) // await bc async function
   displayResults(results)
   searchInput.value = ""
@@ -105,5 +110,9 @@ window.onload = function () {
   //   // dont think variables are being picked up
 	//   console.log(data)
   // });
+  searchForm.addEventListener("submit", handleFormSubmit)
+  // console.log(searchForm)
   // Add any event handlers here
+  showMoreBtn.addEventListener("click", handleShowMore)
+  console.log("hi")
 }

@@ -14,10 +14,18 @@
     <form id = "search-form">
    
         <label for="search">Search</label>
-        <input type="text" name = "search" placeholder = "Enter your search here" required/>
-        <button id="search-button" type = "submit" >Submit</button>      
+        <input id = "search-input" type="text" name = "search" placeholder = "Enter your search here" required/>
+        <button id="search-button" type = "submit" class="search-btn">Search Giphy!</button>      
 
-    </form><br>
+    </form>
+    <br>
+
+    <div id="results"></div>
+    <div class="show-more-area">
+    <button id="show-more-button" type="button" class = "search-btn-hidden"> Show me more GIFs!</button>
+    </div>
+    <br>
+    
     <section class = "gif-container"></section>
 </body>
 </html>

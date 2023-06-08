@@ -3,7 +3,8 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;            
+  text-align: center;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -13,4 +14,14 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   margin: 20px 0;
+}
+
+#form {
+  text-align: center;
+}
+.gif-container {
+  height: 40vh;
+  width: 80%;
+  background: black;
+  margin: auto;
 }

@@ -38,7 +38,7 @@ function displayResults(results) {
   for (let gif of results) {
     gifsHTMLString += generateGifHTML(gif?.images?.original?.url ?? "")
   }
-
+console.log(resultsEl.innerHTML)
   resultsEl.innerHTML += gifsHTMLString
 }
 
@@ -57,7 +57,8 @@ async function getGiphyApiResults(searchTerm) {
   const offset = state.apiPage * limit
   const response = await fetch(createGiphyEndpointUrl(searchTerm, limit, offset)) // await bc async function
   const jsonResponse = await response.json() // await bc async function
-  console.log(jsonResponse.data)
+  console.log(jsonResponse);
+  // console.log(jsonResponse.data)
   return jsonResponse.data // async function
 }
 
@@ -114,5 +115,5 @@ window.onload = function () {
   // console.log(searchForm)
   // Add any event handlers here
   showMoreBtn.addEventListener("click", handleShowMore)
-  console.log("hi")
+  // console.log("hi")
 }
